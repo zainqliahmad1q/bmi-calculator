@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Nutrition and Exercise Work Together for Healthy Weight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F2430;
+  --sea:#16606B;
+  --sage:#5E9A81;
+  --coral:#E0684E;
+  --amber:#D99B3C;
+  --paper:#E7EDEC;
+  --paper-2:#F8FAFA;
+  --slate:#5A6B70;
+  --line:rgba(15,36,48,.14);
+  --disp:'Sora',system-ui,sans-serif;
+  --body:'Literata',Georgia,serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  margin:0;background:var(--paper-2);color:var(--ink);
+  font-family:var(--body);font-size:18.5px;line-height:1.76;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--sea);text-underline-offset:3px}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 26px}
+.narrow{max-width:790px}
+
+/* header */
+.hdr{
+  position:sticky;top:0;z-index:60;background:rgba(248,250,250,.93);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:78px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand-mk{
+  width:40px;height:40px;border-radius:50%;background:var(--sea);color:#fff;
+  display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:13px;
+  letter-spacing:-.2px;box-shadow:0 0 0 3px rgba(22,96,107,.14);
+}
+.brand-tx b{display:block;font-family:var(--disp);font-weight:700;font-size:16.5px;letter-spacing:-.5px;line-height:1.1}
+.brand-tx span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:2.2px;color:var(--slate);text-transform:uppercase;margin-top:3px}
+.nav{display:flex;align-items:center;gap:22px}
+.nav a{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;
+  text-decoration:none;color:var(--slate);transition:color .2s;
+}
+.nav a:hover{color:var(--sea)}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-family:var(--mono);font-size:11px;letter-spacing:1.2px;color:var(--ink);cursor:pointer}
+
+/* hero */
+.hero{position:relative;background:var(--ink);color:#DCE7E7;overflow:hidden;padding:84px 0 76px}
+.hero:before{
+  content:"";position:absolute;inset:0;opacity:.5;
+  background:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.045) 0 1px,transparent 1px 34px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 34px);
+}
+.hero:after{
+  content:"";position:absolute;width:700px;height:700px;right:-260px;top:-290px;border-radius:50%;
+  background:radial-gradient(circle,rgba(22,96,107,.6),transparent 68%);
+}
+.hero .wrap{position:relative;z-index:2}
+h1{
+  font-family:var(--disp);font-weight:800;font-size:clamp(2.4rem,5.6vw,4.2rem);
+  line-height:1.03;letter-spacing:-2px;margin:0 0 30px;color:#fff;max-width:17ch;
+}
+.hero p{font-size:1.1rem;line-height:1.8;max-width:66ch;color:#AEC3C4;margin:0}
+
+/* two-strand graphic */
+.chart{margin:50px 0 0;width:100%}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.strand{
+  fill:none;stroke-width:3.5;stroke-linecap:round;
+  stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2s ease-out forwards;
+}
+.node{opacity:0;animation:pop .4s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+
+/* sections */
+section{padding:86px 0}
+.band{background:var(--paper)}
+h2{
+  font-family:var(--disp);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.35rem);
+  line-height:1.16;letter-spacing:-1px;margin:0 0 26px;max-width:26ch;
+}
+h2:before{content:"";display:block;width:50px;height:4px;border-radius:2px;background:var(--coral);margin-bottom:22px}
+.m-sage h2:before{background:var(--sage)}
+p{margin:0 0 22px}
+p:last-child{margin-bottom:0}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* framework list */
+.frame{margin:30px 0 0;padding:0;list-style:none}
+.frame li{
+  position:relative;padding:18px 0 18px 34px;border-bottom:1px solid var(--line);font-size:1.02rem;
+}
+.frame li:first-child{border-top:1px solid var(--line)}
+.frame li:before{
+  content:"";position:absolute;left:0;top:27px;width:14px;height:4px;border-radius:2px;background:var(--sage);
+}
+.frame li:nth-child(even):before{background:var(--coral)}
+
+/* dark bands */
+.closing{background:var(--ink);color:#C6D6D6;position:relative;overflow:hidden}
+.closing:before{
+  content:"";position:absolute;inset:0;opacity:.45;
+  background:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 34px),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 34px);
+}
+.closing .wrap{position:relative;z-index:2}
+.closing h2{color:#fff}
+.closing a{color:var(--amber)}
+.closing a:hover{color:#fff}
+
+/* footer */
+footer{background:#0A1A22;color:#8CA2A5;padding:66px 0 32px;font-size:.95rem}
+.f-top{display:grid;grid-template-columns:1.6fr 1fr;gap:44px;padding-bottom:42px;border-bottom:1px solid rgba(255,255,255,.1)}
+footer h5{font-family:var(--mono);font-size:10.5px;letter-spacing:2.2px;text-transform:uppercase;color:#fff;margin:0 0 18px}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin-bottom:11px}
+footer a{color:#8CA2A5;text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--coral)}
+.f-brand b{font-family:var(--disp);font-weight:700;font-size:1.3rem;color:#fff;letter-spacing:-.6px;display:block;margin-bottom:22px}
+.socials{display:flex;gap:11px}
+.socials a{
+  width:41px;height:41px;border:1px solid rgba(255,255,255,.18);border-radius:50%;
+  display:grid;place-items:center;transition:background .2s,border-color .2s,transform .2s;
+}
+.socials a:hover{background:var(--coral);border-color:var(--coral);transform:translateY(-3px)}
+.socials svg{width:17px;height:17px;fill:#A9BCBE}
+.socials a:hover svg{fill:#0F2430}
+.f-btm{padding-top:26px;font-family:var(--mono);font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:#65797D}
+
+@media(max-width:900px){.f-top{grid-template-columns:1fr;gap:34px}}
+@media(max-width:760px){
+  body{font-size:17.5px}
+  .nav{position:fixed;inset:78px 0 auto;background:var(--paper-2);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px 26px 20px;display:none}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .burger{display:block}
+  section{padding:60px 0}
+  .hero{padding:60px 0 56px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .strand{stroke-dashoffset:0}
+  .node{opacity:1}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top">
+      <span class="brand-mk">IMC</span>
+      <span class="brand-tx"><b>IMC de Calculadora</b><span>Peso ideal</span></span>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav">
+      <a href="#diet">Diet Alone</a>
+      <a href="#exercise">Exercise Alone</a>
+      <a href="#earns">What Exercise Does</a>
+      <a href="#combined">Combined Approach</a>
+      <a href="#consistency">Consistency</a>
+      <a href="#payoff">The Payoff</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="hero">
+  <div class="wrap">
+    <h1>How Nutrition and Exercise Work Together for Healthy Weight</h1>
+    <div class="narrow">
+      <p>Nutrition and exercise are often discussed as if they're competing strategies, pick one, focus on it, and results will follow. In reality, they work best as partners, each compensating for what the other can't do alone, and understanding how they interact makes it much easier to build an approach that actually works.</p>
+    </div>
+
+    <div class="chart" aria-hidden="true">
+      <svg viewBox="0 0 900 130" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path class="strand" stroke="#E0684E" style="animation-delay:.25s"
+          d="M14,65 C90,14 166,14 242,65 C318,116 394,116 470,65 C546,14 622,14 698,65 C774,116 850,116 886,65"/>
+        <path class="strand" stroke="#5E9A81" style="animation-delay:.45s"
+          d="M14,65 C90,116 166,116 242,65 C318,14 394,14 470,65 C546,116 622,116 698,65 C774,14 850,14 886,65"/>
+        <circle class="node" cx="14" cy="65" r="6" fill="#fff" style="animation-delay:2.2s"/>
+        <circle class="node" cx="242" cy="65" r="5" fill="rgba(255,255,255,.7)" style="animation-delay:2.3s"/>
+        <circle class="node" cx="470" cy="65" r="5" fill="rgba(255,255,255,.7)" style="animation-delay:2.4s"/>
+        <circle class="node" cx="698" cy="65" r="5" fill="rgba(255,255,255,.7)" style="animation-delay:2.5s"/>
+        <circle class="node" cx="886" cy="65" r="6" fill="#fff" style="animation-delay:2.6s"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<section id="diet">
+  <div class="wrap narrow">
+    <h2>Why diet alone has limits</h2>
+    <p>Nutrition is, without question, the dominant factor in weight change, it's genuinely difficult to outrun a poor diet through exercise alone, since it's far easier to eat back the calories burned during a workout than most people realize. A single fast-food meal can easily contain more calories than an hour of moderate exercise burns off. This is why diet quality tends to be the primary lever for weight change.</p>
+    <p>But diet alone, without any physical activity, tends to produce weight loss that includes a meaningful loss of muscle mass alongside fat. Checking an <a href="https://imcdecalculadora.com/">imc calculadora</a> might show a satisfying downward trend, but the composition of that lost weight matters, losing muscle along with fat can leave you weighing less while functioning worse, with a slower metabolism than before.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="exercise" class="band m-sage">
+  <div class="wrap narrow">
+    <h2>Why exercise alone often disappoints on the scale</h2>
+    <p>People frequently start exercising expecting rapid weight loss, only to feel discouraged when the scale barely moves. This happens for a few reasons: exercise burns fewer calories than most people assume, and it often increases appetite, leading to compensatory eating that offsets the calorie burn. Additionally, resistance training builds muscle, which can mask fat loss on the scale since muscle is denser than fat and takes up less space per pound.</p>
+    <p>This doesn't mean exercise doesn't matter for weight management, it matters enormously, just not primarily through direct calorie burning. Its biggest contributions are elsewhere.</p>
+  </div>
+</section>
+
+<section id="earns" class="closing">
+  <div class="wrap narrow">
+    <h2>Where exercise actually earns its keep</h2>
+    <p>Regular physical activity, particularly strength training, helps preserve and build muscle mass during weight loss, which supports a healthier metabolism over the long term. It also improves insulin sensitivity, cardiovascular health, and bone density, benefits that a <a href="https://imcdecalculadora.com/">calcium imc</a> number alone can't capture at all. Exercise additionally supports mental health, better sleep, and stress reduction, all of which indirectly support sustainable eating habits.</p>
+  </div>
+</section>
+
+<section id="combined">
+  <div class="wrap narrow">
+    <h2>Building a combined approach</h2>
+    <p>The most effective, research-supported approach uses nutrition as the primary driver of weight change while using exercise, especially strength training, to preserve muscle and support metabolic and cardiovascular health. A reasonable framework looks something like this:</p>
+    <ul class="frame">
+      <li>Prioritize protein and vegetables at most meals to support fullness and preserve muscle</li>
+      <li>Include strength training two to three times per week to build and maintain muscle</li>
+      <li>Add regular cardiovascular activity, walking counts significantly, for heart health and calorie balance</li>
+      <li>Allow recovery time, since overtraining without adequate nutrition or rest can backfire</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="consistency" class="band">
+  <div class="wrap narrow">
+    <h2>Timing and consistency matter more than intensity</h2>
+    <p>A common mistake is assuming more intense, more frequent workouts automatically produce better results. In reality, consistency over months tends to outperform short bursts of intensity that burn people out within a few weeks. The same applies to nutrition, a moderately good diet followed consistently for a year will typically outperform a "perfect" diet followed intensely for two weeks before abandonment.</p>
+  </div>
+</section>
+
+<section id="payoff" class="closing">
+  <div class="wrap narrow">
+    <h2>The combined payoff</h2>
+    <p>When nutrition and exercise work together consistently, the results tend to show up not just in a lower number, but in genuinely improved health markers: better blood pressure, improved cholesterol, more stable blood sugar, increased strength, and better sleep. These changes reflect real physiological improvement, well beyond whatever a single BMI reading can show. Treating nutrition and exercise as partners, rather than competing strategies, is one of the most reliable ways to build lasting, meaningful change.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <b>IMC de Calculadora</b>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5H16.7V4.6c-.3 0-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24v2.19H7.4V14h2.7v8h3.4z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.2l-4.4-5.8L6 21H2.9l7.3-8.3L2.5 3h6.4l4 5.3L17.5 3zm-1.1 16.1h1.7L7.7 4.8H5.9l10.5 14.3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 4.6c2.4 0 2.7 0 3.6.05.9.04 1.4.2 1.7.32.43.17.74.37 1.06.7.33.32.53.63.7 1.06.12.3.28.8.32 1.7.05.9.05 1.2.05 3.6s0 2.7-.05 3.6c-.04.9-.2 1.4-.32 1.7-.17.43-.37.74-.7 1.06-.32.33-.63.53-1.06.7-.3.12-.8.28-1.7.32-.9.05-1.2.05-3.6.05s-2.7 0-3.6-.05c-.9-.04-1.4-.2-1.7-.32a2.9 2.9 0 01-1.06-.7 2.9 2.9 0 01-.7-1.06c-.12-.3-.28-.8-.32-1.7C4.6 14.7 4.6 14.4 4.6 12s0-2.7.05-3.6c.04-.9.2-1.4.32-1.7.17-.43.37-.74.7-1.06a2.9 2.9 0 011.06-.7c.3-.12.8-.28 1.7-.32.9-.05 1.2-.05 3.6-.05M12 3c-2.44 0-2.75.01-3.7.06-.96.04-1.6.2-2.18.42-.6.23-1.1.54-1.6 1.04-.5.5-.81 1-1.04 1.6-.22.57-.38 1.22-.42 2.18C3.01 9.25 3 9.56 3 12s.01 2.75.06 3.7c.04.96.2 1.6.42 2.18.23.6.54 1.1 1.04 1.6.5.5 1 .81 1.6 1.04.57.22 1.22.38 2.18.42.95.05 1.26.06 3.7.06s2.75-.01 3.7-.06c.96-.04 1.6-.2 2.18-.42.6-.23 1.1-.54 1.6-1.04.5-.5.81-1 1.04-1.6.22-.57.38-1.22.42-2.18.05-.95.06-1.26.06-3.7s-.01-2.75-.06-3.7c-.04-.96-.2-1.6-.42-2.18a4.5 4.5 0 00-1.04-1.6 4.5 4.5 0 00-1.6-1.04c-.57-.22-1.22-.38-2.18-.42C14.75 3.01 14.44 3 12 3zm0 4.38A4.62 4.62 0 1016.62 12 4.62 4.62 0 0012 7.38zm0 7.62A3 3 0 1115 12a3 3 0 01-3 3zm5.88-7.8a1.08 1.08 0 11-1.08-1.08 1.08 1.08 0 011.08 1.08z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.02s-4 0-6.8.15c-.4.05-1.25.05-2 .85-.6.6-.8 2-.8 2S2.2 8.8 2.2 10.5v1.6c0 1.65.2 3.3.2 3.3s.2 1.4.8 2c.75.8 1.75.78 2.2.86 1.6.15 6.8.2 6.8.2s4 0 6.8-.16c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.65.2-3.3v-1.6c0-1.65-.2-3.3-.2-3.3zM10 14.3V8.9l5.15 2.72L10 14.3z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6.94 5.5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0zM3.2 8.9h3.6V21H3.2V8.9zm5.9 0h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.3 4.3 5.3V21h-3.6v-5.85c0-1.4-.03-3.2-2-3.2-2 0-2.3 1.52-2.3 3.1V21H9.1V8.9z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Contents</h5>
+        <ul>
+          <li><a href="#diet">Why diet alone has limits</a></li>
+          <li><a href="#exercise">Why exercise alone often disappoints on the scale</a></li>
+          <li><a href="#earns">Where exercise actually earns its keep</a></li>
+          <li><a href="#combined">Building a combined approach</a></li>
+          <li><a href="#consistency">Timing and consistency matter more than intensity</a></li>
+          <li><a href="#payoff">The combined payoff</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-btm">© 2026 IMC de Calculadora</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('burger'),n=document.getElementById('nav');
+  b.addEventListener('click',function(){
+    var o=n.classList.toggle('open');
+    b.setAttribute('aria-expanded',o);
+  });
+  n.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){n.classList.remove('open');b.setAttribute('aria-expanded',false)});
+  });
+})();
+</script>
+</body>
+</html>
+
